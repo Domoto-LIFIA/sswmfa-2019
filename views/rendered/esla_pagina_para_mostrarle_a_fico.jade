@@ -1,0 +1,24 @@
+extends ../layout
+block content
+	.col-sm-2
+		nav.nav.flex-column
+
+	.col-sm-10
+		h3 List
+		table.table
+			thead.thead-dark
+				tr
+					th(scope='col') id
+					th(scope='col') precio
+					th(scope='col') titulo
+
+			tbody
+				if(recordsFromtelevisoresFico)
+					each item in recordsFromtelevisoresFico
+						tr
+							td=item.id
+							td=item.precio
+							td=item.titulo
+
+
+

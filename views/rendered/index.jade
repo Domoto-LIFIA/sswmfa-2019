@@ -1,0 +1,22 @@
+extends ../layout
+block content
+	.col-sm-2
+		nav.nav.flex-column
+
+	.col-sm-10
+		h3 List
+		table.table
+			thead.thead-dark
+				tr
+					th(scope='col') id
+					th(scope='col') estrellas
+
+			tbody
+				if(recordsFromDescripciones)
+					each item in recordsFromDescripciones
+						tr
+							td=item.id
+							td=item.estrellas
+
+
+

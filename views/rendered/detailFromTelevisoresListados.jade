@@ -1,0 +1,10 @@
+extends ../layout
+block content
+	.col-sm-2
+		nav.nav.flex-column
+			a.nav-link(href='/render/') Volver al inicio
+	.col-sm-10
+		h3 Detail
+		p titulo: #{record.titulo}
+		p precio: #{record.precio}
+

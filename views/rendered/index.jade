@@ -1,7 +1,10 @@
 extends ../layout
+block append scripts
+	script(src='../../src/rendered/index.jade')
 block content
 	.col-sm-2
 		nav.nav.flex-column
+			a.nav-link(href='/render/page') page
 
 	.col-sm-10
 		h3 List
@@ -9,14 +12,39 @@ block content
 			thead.thead-dark
 				tr
 					th(scope='col') id
-					th(scope='col') estrellas
+					th(scope='col') titulo
+					th(scope='col') precio
 
 			tbody
-				if(recordsFromDescripciones)
-					each item in recordsFromDescripciones
+				if(recordsFromTelevisoresListados)
+					each item in recordsFromTelevisoresListados
 						tr
 							td=item.id
-							td=item.estrellas
+							td=item.titulo
+							td=item.precio
 
+							td
+								a.btn.btn-primary(href='/render/updateOneInTelevisoresListados/'+item.id, role='button') Edit
+							td
+								a.btn.btn-secondary(href='/render/detailOfOneFromTelevisoresListados/'+item.id, role='button') Detail
+
+		h3 List
+		table.table
+			thead.thead-dark
+				tr
+					th(scope='col') id
+					th(scope='col') TextoComentario
+
+			tbody
+				if(recordsFromCOmentario)
+					each item in recordsFromCOmentario
+						tr
+							td=item.id
+							td=item.TextoComentario
+
+							td
+								a.btn.btn-primary(href='/render/updateOneInCOmentario/'+item.id, role='button') Edit
+							td
+								a.btn.btn-secondary(href='/render/detailOfOneFromCOmentario/'+item.id, role='button') Detail
 
 

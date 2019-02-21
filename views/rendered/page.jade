@@ -1,0 +1,18 @@
+extends ../layout
+block append scripts
+block content
+	.col-sm-2
+		nav.nav.flex-column
+
+	.col-sm-10
+		h3 Form
+		form(id="formCOmentario", action="/render/insertOneInCOmentario", method="POST")
+			.form-group
+				label TextoComentario *
+				input.form-control(id='TextoComentario', name='TextoComentario',type='text', required='')
+
+			.form-group
+				button.btn.btn-primary(type='submit') Submit
+				button.btn.btn-primary.margin-btn(type='reset') Reset
+
+

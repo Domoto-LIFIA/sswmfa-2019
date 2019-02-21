@@ -1,0 +1,20 @@
+extends ../layout
+block content
+	.col-sm-2
+		nav.nav.flex-column
+			a.nav-link(href='/render/') Volver al inicio
+	.col-sm-10
+		h3 Update record in List
+		form(id="formUpdateTelevisoresListados", action="/render/updateOneInTelevisoresListados", method="POST")
+			.form-group
+				input.form-control(id='id', name='id', type='hidden', value=record.id)
+			.form-group
+				label titulo *
+				input.form-control(id='titulo', name='titulo', type='text', value=record.titulo, required='')
+			.form-group
+				label precio *
+				input.form-control(id='precio', name='precio', type='text', value=record.precio, required='')
+
+			.form-group
+				button.btn.btn-primary(type='submit') Update
+				button.btn.btn-primary.margin-btn(type='reset') Reset

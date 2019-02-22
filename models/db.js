@@ -1,17 +1,17 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('sqlite:sswmfa.db');
 
-const TelevisoresListados = sequelize.define('TelevisoresListados', {
+const TelevisoresListado = sequelize.define('TelevisoresListado', {
  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-  titulo: { type: Sequelize.STRING, allowNull: false, unique: true },
+  titulo: { type: Sequelize.STRING },
   precio: { type: Sequelize.STRING, allowNull: false }
 });
 
-const COmentario = sequelize.define('COmentario', {
+const COmentarios = sequelize.define('COmentarios', {
  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-  TextoComentario: { type: Sequelize.STRING, allowNull: false, unique: true }
+  TextoComentario: { type: Sequelize.STRING }
 });
 
-TelevisoresListados.hasMany(COmentario);
+TelevisoresListado.hasMany(COmentarios);
 
 module.exports = sequelize;

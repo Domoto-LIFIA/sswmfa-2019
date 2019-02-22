@@ -34,6 +34,7 @@ function createTables(){
   });
 }
 
+//Interfaz de ER, son las especificaciones del rectangulo de Class
 function createClasses(){
   let dbClasses = '';
   if (erClasses.length < 1) {
@@ -86,9 +87,11 @@ function createClasses(){
     });// end for each field
     dbClasses += 
     '});' + '\n' + '\n';
+    
   });//end for each class
 
-  return dbClasses;
+   
+  return dbClasses + 'TelevisoresListado.hasMany(COmentarios);'+ '\n' + '\n';
 }
 
 function createRouterForTables(){

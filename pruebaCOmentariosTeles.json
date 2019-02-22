@@ -1,0 +1,9 @@
+{ "class": "go.GraphLinksModel",
+    "copiesArrays": true,
+    "copiesArrayObjects": true,
+    "modelData": {"position":"-0.8470959663391113 -190.18966621076038"},
+    "nodeDataArray": [ 
+  {"name":"TelevisoresListado", "properties":[ {"name":"titulo", "type":"string", "unique":false, "nullable":true},{"name":"precio", "type":"type", "unique":false, "nullable":false} ], "key":-1, "loc":"400 140"},
+  {"name":"COmentarios", "properties":[ {"name":"TextoComentario", "type":"type", "unique":false, "nullable":true} ], "key":-2, "loc":"740 260"}
+   ],
+    "linkDataArray": [ {"from":-1, "to":-2, "text":"1..5\n"} ]}

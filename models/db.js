@@ -12,4 +12,6 @@ const COmentario = sequelize.define('COmentario', {
   TextoComentario: { type: Sequelize.STRING, allowNull: false, unique: true }
 });
 
+TelevisoresListados.hasMany(COmentario);
+
 module.exports = sequelize;

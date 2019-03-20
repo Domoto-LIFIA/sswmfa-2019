@@ -1,0 +1,34 @@
+extends ../layout
+block content
+	.col-sm-2
+		nav.nav.flex-column
+			a.nav-link(href='/render/') LISTA DE TELEVISORES 
+
+
+	.col-sm-10
+		h3 Form
+		form(id="formCOmentarios", action="/render/insertOneInCOmentarios", method="POST")
+			.form-group
+				label TextoComentario
+				input.form-control(id='TextoComentario', name='TextoComentario',type='text')
+
+			.form-group
+				button.btn.btn-primary(type='submit') Submit
+				button.btn.btn-primary.margin-btn(type='reset') Reset
+
+		h3 List
+		table.table
+			thead.thead-dark
+				tr
+					th(scope='col') id
+					th(scope='col') TextoComentario
+
+			tbody
+				if(recordsFromCOmentarios)
+					each item in recordsFromCOmentarios
+						tr
+							td=item.id
+							td=item.TextoComentario
+
+
+

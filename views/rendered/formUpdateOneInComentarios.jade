@@ -5,15 +5,16 @@ block content
 			a.nav-link(href='/render/') Volver al inicio
 	.col-sm-10
 		h3 Update record in List
-		form(id="formUpdateTelevisoresListados", action="/render/updateOneInTelevisoresListados", method="POST")
+		form(id="formUpdateComentarios", action="/render/updateOneInComentarios", method="POST")
 			.form-group
 				input.form-control(id='id', name='id', type='hidden', value=record.id)
 			.form-group
-				label Titulo *
-				input.form-control(id='Titulo', name='Titulo', type='text', value=record.Titulo, required='')
+				label texto *
+				input.form-control(id='texto', name='texto', type='text', value=record.texto, required='')
+
 			.form-group
-				label precio *
-				input.form-control(id='precio', name='precio', type='text', value=record.precio, required='')
+				label texto *
+				input.form-control(id='TelevisoresListadosId', name='TelevisoresListadosId', type='text', value=record.texto, required='')
 
 			.form-group
 				button.btn.btn-primary(type='submit') Update

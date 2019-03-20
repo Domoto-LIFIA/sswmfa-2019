@@ -1,18 +1,37 @@
 extends ../layout
-block append scripts
 block content
 	.col-sm-2
 		nav.nav.flex-column
 
 	.col-sm-10
 		h3 Form
-		form(id="formCOmentario", action="/render/insertOneInCOmentario", method="POST")
+		form(id="formComentarios", action="/render/insertOneInComentarios", method="POST")
 			.form-group
-				label TextoComentario *
-				input.form-control(id='TextoComentario', name='TextoComentario',type='text', required='')
+				label texto *
+				input.form-control(id='texto', name='texto',type='text', required='')
 
 			.form-group
 				button.btn.btn-primary(type='submit') Submit
 				button.btn.btn-primary.margin-btn(type='reset') Reset
+
+		h3 List
+		table.table
+			thead.thead-dark
+				tr
+					th(scope='col') id
+					th(scope='col') texto
+					th(scop='col') televisoresId
+
+			tbody
+				if(recordsFromComentarios)
+					each item in recordsFromComentarios
+						tr
+							td=item.id
+							td=item.texto
+							td=item.TelevisoresListadoId
+							td
+								a.btn.btn-primary(href='/render/updateOneInComentarios/'+item.id, role='button') Edit
+							td
+								a.btn.btn-secondary(href='/render/detailOfOneFromComentarios/'+item.id, role='button') Detail
 
 

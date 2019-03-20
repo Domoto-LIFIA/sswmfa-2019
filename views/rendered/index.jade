@@ -1,18 +1,30 @@
 extends ../layout
-block append scripts
-	script(src='../../src/rendered/index.jade')
 block content
 	.col-sm-2
 		nav.nav.flex-column
-			a.nav-link(href='/render/page') page
+			a.nav-link(href='/render/page') COmentaris
+
 
 	.col-sm-10
+		h3 Form
+		form(id="formTelevisoresListados", action="/render/insertOneInTelevisoresListados", method="POST")
+			.form-group
+				label Titulo *
+				input.form-control(id='Titulo', name='Titulo',type='text', required='')
+			.form-group
+				label precio *
+				input.form-control(id='precio', name='precio',type='text', required='')
+
+			.form-group
+				button.btn.btn-primary(type='submit') Submit
+				button.btn.btn-primary.margin-btn(type='reset') Reset
+
 		h3 List
 		table.table
 			thead.thead-dark
 				tr
 					th(scope='col') id
-					th(scope='col') titulo
+					th(scope='col') Titulo
 					th(scope='col') precio
 
 			tbody
@@ -20,31 +32,14 @@ block content
 					each item in recordsFromTelevisoresListados
 						tr
 							td=item.id
-							td=item.titulo
+							td=item.Titulo
 							td=item.precio
 
+							td 
+								a.btn.btn-danger(href='/render/deleteOneFromTelevisoresListados/'+item.id, role='button') Delete
 							td
 								a.btn.btn-primary(href='/render/updateOneInTelevisoresListados/'+item.id, role='button') Edit
 							td
 								a.btn.btn-secondary(href='/render/detailOfOneFromTelevisoresListados/'+item.id, role='button') Detail
-
-		h3 List
-		table.table
-			thead.thead-dark
-				tr
-					th(scope='col') id
-					th(scope='col') TextoComentario
-
-			tbody
-				if(recordsFromCOmentario)
-					each item in recordsFromCOmentario
-						tr
-							td=item.id
-							td=item.TextoComentario
-
-							td
-								a.btn.btn-primary(href='/render/updateOneInCOmentario/'+item.id, role='button') Edit
-							td
-								a.btn.btn-secondary(href='/render/detailOfOneFromCOmentario/'+item.id, role='button') Detail
 
 

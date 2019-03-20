@@ -2,44 +2,27 @@ extends ../layout
 block content
 	.col-sm-2
 		nav.nav.flex-column
-			a.nav-link(href='/render/page') COmentaris
-
 
 	.col-sm-10
-		h3 Form
-		form(id="formTelevisoresListados", action="/render/insertOneInTelevisoresListados", method="POST")
-			.form-group
-				label Titulo *
-				input.form-control(id='Titulo', name='Titulo',type='text', required='')
-			.form-group
-				label precio *
-				input.form-control(id='precio', name='precio',type='text', required='')
-
-			.form-group
-				button.btn.btn-primary(type='submit') Submit
-				button.btn.btn-primary.margin-btn(type='reset') Reset
-
 		h3 List
 		table.table
 			thead.thead-dark
 				tr
 					th(scope='col') id
-					th(scope='col') Titulo
-					th(scope='col') precio
+					th(scope='col') property
 
 			tbody
-				if(recordsFromTelevisoresListados)
-					each item in recordsFromTelevisoresListados
+				if(recordsFromComentarios)
+					each item in recordsFromComentarios
 						tr
 							td=item.id
-							td=item.Titulo
-							td=item.precio
+							td=item.property
 
 							td 
-								a.btn.btn-danger(href='/render/deleteOneFromTelevisoresListados/'+item.id, role='button') Delete
+								a.btn.btn-danger(href='/render/deleteOneFromComentarios/'+item.id, role='button') Delete
 							td
-								a.btn.btn-primary(href='/render/updateOneInTelevisoresListados/'+item.id, role='button') Edit
+								a.btn.btn-primary(href='/render/updateOneInComentarios/'+item.id, role='button') Edit
 							td
-								a.btn.btn-secondary(href='/render/detailOfOneFromTelevisoresListados/'+item.id, role='button') Detail
+								a.btn.btn-secondary(href='/render/detailOfOneFromComentarios/'+item.id, role='button') Detail
 
 

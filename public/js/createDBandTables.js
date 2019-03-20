@@ -91,7 +91,7 @@ function createClasses(){
   });//end for each class
 
    
-  return dbClasses + 'TelevisoresListado.hasMany(COmentarios);'+ '\n' + '\n';
+  return dbClasses + 'TelevisoresListado.hasMany(Comentarios);'+ '\n' + '\n';
 }
 
 function createRouterForTables(){

@@ -1,0 +1,24 @@
+Para ejecutar una secuencia completa y realice el filtrado que corresponde al televisor definido en fravega,
+debe suceder lo siguiente. 
+ 1) al realizar el ciclo de añadir un tag en la pagina de fravega, hay que tener la precaucion de generar
+ un TAG que tenga el nombre de 'TelevisoresListado'
+ 2) Abrimos el servidor en la parte de ER y presionamos en Load JSON, traera el tag en formato de tabla. 
+ Añadimos una clase con el nombre de 'Comentarios' y presionamos luego en "Create Table". Esto va generar el texto de 
+ db.js y solucionara los INSERT en el archivo sswmfa.db
+
+ 3) Para nuestro caso simplemente teniamos que mostrar los comentarios que corresponden al televisor. EN este momento cuando
+ generamos no esta pudiendo tagear como clave primaria el nombre, por lo que es un caso a conciderar en el sswmfa-2019
+ Por otro lado, estamos observando que en render.js no esta implementado los filtros de la tabla para que solo arme el servicio para ese televisor,
+ sino que arma solo un servicio para un caso especifico. De esta forma llegamos a deducir que añadiendo un filter en el render.js y solo en el index.jade
+ (el get correspondiente al "/" de nuestro servidor) nos va mostrar los comentarios previamente asociados y agregados por formularios (en otro servicio anterior, acumule tablas)
+
+ Propuestas que se deberian realizar: 
+ * Implementacion de Filtros para las vistas correspondientes
+ * Añadir columna que tengan el nombre asociado al contenido correspondiente y no el numero como tiene
+ la columan de "TelevisoresListadoId" EN LA TABLA DE COMENTARIOS creada actualmente. 
+ * El archivo createDBandTables.js no esta preparado para realizar: 
+         - relacion entre tablas
+         - relacion grafico (con libreria go-js) con lo que se crea. 
+    Para que funcione correctamente debemos copiar y pegar el db-final.js y pegarlo en lugar de db.js(conservar este ultimo nombre de archivo)
+ 
+
